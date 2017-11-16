@@ -1,0 +1,454 @@
+********************************************
+  XRebel Changelog
+********************************************
+
+3.4.0 (30th of October 2017)
+* Added the Trace Differences feature that allows comparing trace-related changes between requests.
+* Fixed an issue with XRebel Local agent sometimes crashing when the user switched to the CPU view in the middle of handling a large amount of data.
+* Fixed an issue when a placeholder was shown instead of an array parameter for PostgreSQL prepared statements.
+
+3.3.9 (29th of September 2017)
+* Added support for Java 9.
+* Fixed an issue with XRebel toolbar not being visible when the HTTP response used GZIP compression.
+* Fixed an issue where JDBC prepared statements without parameters caused an ArrayIndexOutOfBoundsException.
+* Fixed an issue where MongoDB queries executed in an asynchronous HTTP servlet request were not registered.
+* Fixed an issue where activation failed when the License Server group URL included a trailing space.
+* Fixed an issue where HTTP request body was sometimes incorrectly truncated and the wrong size was shown for large requests.
+
+3.3.8 (1st of September 2017)
+* Fixed an issue where the number of IO query results in remote applications was not correctly aggregated to the root XRebel request node.
+* Fixed an issue where an incorrect method name was shown as the source of a logging statement in the Logs view when using org.apache.logging.Log4jLogger.
+
+3.3.7 (14th of August 2017)
+* Hotfix release.
+
+3.3.6 (11th of August 2017)
+* XRebel Shares are now stored in XRebel Hub.
+* Added support for “out” parameters in JDBC CallableStatement.
+* Improved the formatting of very long exception messages.
+* Fixed an issue that prevented using the Feedback feature when the operating system’s temporary directory did not have permission for writing.
+* IO events are now sorted chronologically within request nodes.
+
+3.3.5 (21st of July 2017)
+* Added initial support for rendering SQL queries in IBM DB2 dialect.
+* Fixed an issue where XRebel did not show IO events in remote requests.
+* Fixed an issue where the XRebel toolbar was incorrectly shown in the GlassFish admin console.
+* Fixed an issue where XRebel could not be enabled for Weblogic in Eclipse using latest versions of Oracle Server Tools.
+* Fixed an issue where a javascript error was thrown when opening/closing request nodes.
+
+3.3.4 (30th of June 2017)
+* Redesigned the tooltips for the XRebel toolbar and headers.
+* Fixed an issue where a NoClassDefFoundError was thrown during an EJB method call in WebSphere 8.5 running on IBM JDK 7.
+* Fixed an issue where some XRebel headers were incorrectly displayed for outgoing HTTP requests to other XRebel-enabled services.
+* Fixed an issue where some XRebel-specific frames were displayed for application exception stack traces shown in the XRebel UI.
+
+3.3.3 (2nd of June 2017)
+* Improved the way exception messages are displayed.
+* Revised the user experience for sending feedback.
+* Fixed an issue where some JRebel exceptions were shown in XRebel (during simultaneous use).
+* Fixed an issue where some XRebel stack frames were displayed in a StackOverflowError originating from the application code.
+* Fixed an issue where a StackOverflowError would occur when logging an object in application code using SLF4J logging in its toString method.
+* Fixed an issue where XRebel icons did not render properly on Internet Explorer in some cases.
+* Fixed an issue where an invisible iframe would be rendered on top of the browser window in Firefox in some cases.
+
+3.3.2 (12th of May 2017)
+* Added support for SLF4J in the Logs View.
+* Improved the activation dialog to remember the form state when navigating away from it.
+* Fixed an issue where a ClassCastException was thrown for org.glassfish.grizzly.memory.HeapMemoryManager.
+
+3.3.1 (21st of April 2017)
+* Redesigned the headers in XRebel UI.
+* Removed automatic spell check from license key activation input.
+* Fixed an issue in the Application Profiling view where HTTP CONNECT was reported with an incorrect duration.
+
+3.3.0 (31st of March 2017)
+* Redesigned the XRebel Standalone UI.
+* Removed the search feature from Calls, Events and Session views.
+* Fixed a startup failure with Grails 3.2 that was caused by incompatibility with the spring-loaded agent.
+* Fixed a missing parameter issue when running XRebel with Seam 2 on JBoss 5.
+* Fixed an issue where WebSphere startup hangs when running XRebel with the debugger enabled.
+* Fixed a VerifyError when running XRebel on JRockit.
+
+3.2.5 (10th of March 2017)
+* Fixed an issue with showing HTTP request and response body for httpclient4 and URLConnection.
+* Fixed an issue in OpenJPA JDBC delegates which caused the wrong SQL to be displayed.
+* Improved JBoss 6.1.0 AS compatibility.
+* Improved WebSphere Liberty Profile 16.0.0.4 compatibility.
+* Improved WebLogic 12.2.1.2 compatibility.
+* Improved Apache Tomcat 6.0.48 compatibility.
+* Improved Apache Tomcat 7.0.75 compatibility.
+* Improved Apache Tomcat 8.0.41 compatibility.
+* Improved Apache Tomcat 8.5.11 compatibility.
+* Improved Resin 4.0.50 compatibility.
+* Improved Jetty 9.3.16 compatibility.
+* Improved Jetty 9.4.1 compatibility.
+* Improved RabbitMQ Java driver 4.0.2 compatibility.
+* Improved Cassandra Java driver 3.1.4 compatibility.
+* Improved Couchbase Java driver 2.4.2 compatibility.
+* Improved MongoDB Java driver 3.4.2 compatibility.
+* Improved Apache Async HttpClient 4.1.3 compatibility.
+
+3.2.4 (17th of February 2017)
+* Added support for turning Application profiling on/off in runtime.
+* Added support for WebSphere Application Server 9.
+* Added support for Jetty 9.4.
+* Fixed an issue with webservice calls over https in WebSphere.
+* Fixed an issue in JDBC integration when Oracle UCP is installed as JBoss EAP module.
+* Fixed an issue in JMS integration when queue name is null.
+* Fixed an issue in MongoDB integration where collection name is null.
+* Fixed an issue with 32bit IBM Java networking on Windows.
+
+3.2.3 (20th of January 2017)
+* Improved the look and feel of XRebel Settings.
+* HTTP requests in the Logs view now stick to the top when scrolling.
+* Added support for parameterized Couchbase queries.
+* Fixed an issue with the Apache HttpClient integration for applications using Apache ServiceMix.
+* Improved TomEE 7.0.2 compatibility.
+* Improved Couchbase Java SDK 2.4.0 compatibility.
+* Improved RabbitMQ Java driver 3.6.6 and 4.0.1 compatibility.
+* Improved Cassandra Java driver 3.1.3 compatibility.
+* Improved MongoDB Java driver 3.4.1 compatibility.
+* Improved Hibernate 4.3.11 compatibility.
+* Improved Jedis 2.9.0 compatibility.
+
+3.2.2 (21st of December 2016)
+* Added support for displaying the XRebel toolbar in single page applications, served by a non-Java server.
+* Added support for automatically updating XRebel.
+* Added support for showing log statements in end-to-end remote requests.
+* Added the option to temporarily turn off Application profiling.
+* Fixed an issue with AmazonHttpClient integration.
+* Fixed an issue with JDBC integration handling null dates.
+* Fixed an issue with servlet request integration running with SecurityManager.
+* Fixed an issue with resource caches affecting Internet Explorer users.
+
+3.2.1 (8th of December 2016)
+* Hotfix release.
+
+3.2.0 (1st of December 2016)
+* Added the Logs view to display log statements in requests.
+* HTTP requests now stick to the top when scrolling.
+* Improved support for exceptions in the MongoDB 3 driver.
+* Added support for Spark Framework 2.4.
+* Improved date formatting in SQL.
+
+3.1.5 (1st of November 2016)
+* Exceptions view has been redesigned.
+* IO exceptions are now linked to the Calls view from the Exceptions view.
+* Thread names are now shown for unidentified exceptions.
+* Added support for WebLogic 12.2.
+* Added support for WildFly 10.1.0.
+* Improved compatibility with Cassandra Java driver 3.0.4 and 3.1.1.
+* Improved compatibility with Jetty 7.6.21, 8.1.21, 9.2.19 and 9.3.12.
+* Improved compatibility with Apache Tomcat 7.0.72 and 8.5.5.
+* Improved compatibility with WebLogic 10.3.6.
+* Improved compatibility with WebSphere Liberty Profile 16.0.0.3.
+* Fixed an issue with WebSphere 8.5 using the XRebel for Eclipse plugin.
+* Fixed the missing toolbar issue for some applications running Glassfish 4 and Glassfish 4.1.
+* Fixed the issue with the dragged bookmarklet for Internet Explorer and Microsoft Edge.
+* Full text Couchbase search queries are now better formatted.
+* Increased the package names to contain 3 packages for more detailed context in the Application profiling view.
+
+3.1.4 (26th of September 2016)
+* Added support for Couchbase Java SDK 2.2.0+.
+* Further improved UI performance to handle a large number of IO events.
+* Improved compatibility with application servers.
+  ** WebSphere Liberty 8.5.5.9.
+  ** WebSphere Liberty 16.
+  ** JBoss EAP 7.
+  ** Apache Tomcat 8.5.
+* Added support for WebSphere 8.5 in the XRebel for Eclipse plugin.
+
+3.1.3 (29th of July 2016)
+* Improved compatibility with application servers:
+  ** Apache Tomcat 6.0.45.
+  ** Apache Tomcat 7.0.70.
+  ** Apache Tomcat 8.0.36.
+  ** Apache TomEE 7.0.1.
+  ** Apache TomEE 1.7.4.
+  ** Jetty 9.3.10.
+  ** Wildfly 8.2.1.
+  ** Wildfly 9.0.2.
+  ** Glassfish 4.1.1.
+  ** Resin 4.0.48.
+* Improved compatibility with IO drivers:
+  ** Cassandra java-driver 3.0.3.
+  ** MongoDB java-driver 2.14.3.
+  ** MongoDB java-driver 3.3.0.
+  ** Apache HttpClient 4.5.2.
+  ** Apache HttpCore 4.4.5.
+* Improved end-to-end profiling over HTTPS using self-signed certificates.
+* Fixed an issue in RabbitMQ integration where message did not have any properties.
+* Removed table name column from Events view.
+
+3.1.2 (14th of June 2016)
+* Improved UI performance to handle a large number of IO events.
+* XRebel keeps updating profiling data following a server restart.
+* Added support for TomEE running on Java 6.
+* Improved the support for the latest Cassandra DataStax (3.0.2) Java driver.
+* Fixed some issues related to install/uninstall in the XRebel Eclipse plugin.
+
+3.1.1 (13th May 2016)
+* Hotfix release.
+
+3.1.0 (27th April 2016)
+* XRebel for Eclipse has been released. Get XRebel as an Eclipse plugin.
+* Improved UI rendering performance with ReactJS.
+* Exceptions thrown during JDBC or HTTP calls are now shown in the Calls view (added inline stack trace).
+
+3.0.2 (6th April 2016)
+* Failed JDBC and HTTP calls are now shown in Calls and Events views.
+* Startup performance has been improved.
+* Added support for decoding encoded HTTP request and response bodies (URL and gzip encodings).
+* Improved compatibility with the PostgreSQL 9.4 JDBC driver.
+* Fixed issues in integration with JMS message producers and message properties.
+* Added support for Spring AMQP message listeners.
+
+3.0.1 (25th February 2016)
+* Added support for Apache HttpAsyncClient.
+* Added support for Cassandra DataStax Java driver 3.0.0.
+* Exceptions from background jobs and messaging endpoints are now logged in the Exceptions view.
+* Exceptions with no identified context are now logged in the "Unidentified" group in the Exceptions view.
+* Support for MongoDB asynchronous driver is now enabled by default.
+* Fixed the toolbar injection into static resources on Jetty (all versions).
+
+3.0.0 (3rd February 2016)
+* Added end-to-end profiling via HTTP calls.
+* Improved JDBC drivers integration to handle JDBC API delegates.
+* Added support for Quartz 1.5.x and 1.6.x.
+* Added support for Spring JMS.
+* HTTP session size monitoring is now disabled by default (access Settings to re-enable).
+* Fixed JVM crash when using the Sybase SQL Anywhere 16 JDBC driver.
+* Fixed reporting MongoDB "ismaster()" calls as database queries.
+
+2.3.1 (24th November 2015)
+* Added support for RabbitMQ.
+* IO events now include items sent to JMS queues and topics.
+* JMS message content is now shown within JMS details.
+* Added a copy-to-clipboard button for database queries.
+
+2.3.0 (26th October 2015)
+* IO > Events view has arrived, replacing Queries.
+* New filters have been added for different sources and event types.
+* Events from any background thread context are now collected and displayed!
+* Extra data is detected and displayed for: Quartz scheduler jobs, ScheduledExecutorService tasks and JMS/MDB beans.
+* Amazon DynamoDB database query events are now collected and displayed.
+* XRebel Share is now disabled by default. Access Settings to enable it.
+* Java 5 is no longer supported. XRebel 2.3 requires Java 6 or newer.
+
+2.2.1 (23rd September 2015)
+* Improved the XRebel Share service and the profiler UI.
+
+
+2.2.0 (27th August 2015)
+* Introduced the XRebel Share feature for uploading interactive XRebel view snapshots.
+* Added support for ZeroTurnaround License Server 3.1 and newer.
+* Added support for Jedis 2.7.3.
+* Improved asynchronous servlet support.
+
+
+2.1.2 (14th July 2015)
+* Added the option to activate using a license file via the UI.
+* Added support for the MongoDB native driver version 3.0.0, including support for asynchronous tasks.
+* Additional details are now displayed for incoming HTTP requests: parameters, headers and payload.
+
+
+2.1.1 (18th June 2015)
+* Fixed NPE when tracing asynchronous invocations.
+* Improved WebLogic integration.
+* Minor bugfixes.
+
+
+2.1.0 (11th June 2015)
+* Capture asynchronous executions.
+* Combined Application / IO view.
+* Improved support for JDBC drivers.
+
+
+2.0.2 (30th April 2015)
+* Improved integration with JRebel on WebLogic 9 & 10.
+* Improved showing paths of JSP source files.
+* Improved integration with Groovy.
+* Added support for user modifiable session blacklist.
+
+
+2.0.1 (14th April 2015)
+* Fixed verify error with ojdbc7 Oracle JDBC driver.
+* Better support for JSP rendering.
+* Added pgjdbc-ng JDBC driver support for PostgreSQL 9.4.
+* Minor UI and UX improvements.
+
+
+2.0.0 (8th April 2015)
+* Added application profiling component to measure and display the performance characteristics of Java code.
+* Session component improved to handle very large HTTP sessions.
+* Improved display of large data sets.
+* Optimized user experience.
+* Added support for Derby JDBC driver 10.11.
+* Added support for SAP MaxDB JDBC driver 7.9.
+
+
+1.2.1 (2nd February 2015)
+* Support for smaller browser windows.
+* Improved support for OpenJDK.
+* Session component improvements.
+* Query presentation improvements.
+
+
+1.2.0 (15th December 2014)
+* Added support for Hibernate 3.6+ both native API and JPA 2.0+.
+* Added support for Redis key/value store with Jedis 2.1+.
+* Added support for WildFly 8.2.0 application server.
+* Added support for outgoing RMI queries.
+* Session component memory footprint optimizations.
+* Formatting and syntax highlight for SQL queries.
+* More compact data representation in the I/O view.
+* Filters toolbar sticks to the top of the screen when scrolling.
+
+
+1.1.4 (27th November 2014)
+* Improved session handling.
+
+
+1.1.3 (10th November 2014)
+* Fixed installation and setup issues.
+
+
+1.1.2 (4th November 2014)
+* Added support for Resin application server 4.0.35+.
+* Added support for WebSphere Application Server Liberty Profile 8.5.5.x.
+* Added support for OrientDB JDBC driver.
+* Various UI fixes.
+
+
+1.1.1 (16th October 2014)
+* Added support for WebSphere 8.0.
+* Added support for TomEE.
+* Added support for HBase native driver 0.94+.
+* Added support for Cassandra Datastax driver 2.0.1+.
+* XRebel data is updated in all open browser windows/tabs.
+* Various UI fixes and usability improvements.
+
+
+1.1.0 (24th September 2014)
+* Added support for MongoDB native driver 2.2+.
+* Added support for Neo4j JDBC driver (2.0.x).
+* Added support for Cassandra 1.2.5 JDBC driver.
+* Added support for HBase Phoenix 3.x and 4.x JDBC driver.
+* Added support for Informix 3.x and 4.x JDBC driver.
+* Added support for DB2 9.1+ JDBC driver.
+* Added support for HttpURLConnection.
+* Added support for HttpClient 4.x.
+* Added grouping of consecutive incoming requests.
+* Added IO event toggles: All, SQL, NoSQL, WebServices.
+* Added button for resetting IO view and exceptions counters.
+* Added ability to hide requests, queries and exceptions.
+* Added support for WebSphere 8.5.5.
+* Added support for Spark micro web framework with embedded Jetty.
+* Added blacklisting of framework classes (~/.xrebel/blacklist.txt).
+* UI performance improvements.
+
+
+1.0.1 (30th June 2014)
+* Added bookmarklet to /xrebel which can be used to enable XRebel on pages where it does not automatically render.
+* Improved stability for Jetty 9.
+* Fixed an issue where having multiple Jetty contexts/handlers caused XRebel to behave incorrectly.
+* Fixed an issue where sql component handled table names of the form $SCHEMA:$TABLE incorrectly.
+* Fixed an issue where the packages would show 'undefined' as package values in some cases.
+* Fixed an issue where XRebel attempted to load settings too eagerly in firewalled internet connection environments leading to slowness.
+* Fixed an issue where using XRebel in environments with Turkish locale would work incorrectly.
+* Fixed an issue where XRebel handled applications with url-encoded session id (JSESSIONID) incorrectly in some cases.
+* Fixed an issue that would in rare cases cause the requests to the application to block when XRebel is enabled.
+* Fixed an issue where the exception stacktrace in exceptions would fold 0 rows in some cases.
+* Fixed an issue where a validation error was displayed during download of feedback preview zip when email was not set.
+* Various UI fixes and usability improvements.
+
+
+1.0.0-GA (12th June 2014)
+* Various UI fixes and usability improvements.
+
+
+1.0.0-RC4 (9th June 2014)
+* Fixed an issue with JBoss 6.1 where startup failed with a java.lang.ExceptionInInitializer error.
+* Fixed an issue where SQL query parsing failed when table name in SQL query was quoted.
+* Fixed an issue where Session component displayed session contents in an invalid encoding.
+* Fixed an issue where packages added in settings view did not persist across a refresh in some cases.
+* Improved sending feedback to also send frontend log.
+* Improved SQL component UI performance when a lot of queries were listed.
+* Various UI fixes and usability improvements.
+
+
+1.0.0-RC3 (3rd June 2014)
+* Added support for Play 1.x.
+* Added license expiry notification popup when less than 15 days remain for the license.
+* Improved send feedback to also include the session snapshot (if required).
+* Fixed an issue where the license registration form was requested over HTTP when the page used HTTPS.
+* Fixed an issue where the license registration form was displayed after registering instead of license extension.
+* Various UI fixes and usability improvements.
+
+
+1.0.0-RC2 (27th May 2014)
+* Added support for Derby Network Client (org.apache.derby.jdbc.ClientDriver) in SQL component.
+* Fixed an issue where the toolbar was not injected to pages served by Jetty in some scenarios.
+* Fixed an issue that caused javascript code in reported SQL queries to be executed in the browser.
+* Fixed an issue where the registration form was requested over HTTP even though the page was HTTPS.
+* Fixed an issue where XRebel was not correctly displayed for pages with xhtml and html strict doctypes.
+* Fixed an issue that would cause incorrect session sizes to be reported for Weld applications.
+* Various UI fixes and tweaks.
+
+
+1.0.0-RC1 (20th May 2014)
+* Added option for exporting session snapshot contents.
+* Improved exceptions component logging (some exceptions were incorrectly reported from Log4J).
+* Fixed an issue that caused Tapestry 5 application to not start when XRebel was enabled.
+* Fixed an issue where XRebel was incorrectly injected into Primefaces .js.xhtml files.
+
+
+1.0.0-M5 (5th May 2014)
+* Added support for CallableStatements.
+* Improved new version notification.
+* Improved session data search, now scrolls to first match.
+* Improved stacktrace filtering for SQL "Queries" view, now shows how many elements were filtered.
+* Improved handling of compressed (gzip/deflate) output from server.
+* Fixed an issue that caused sorting in SQL "Queries" view to fail for queries with no table names.
+* Fixed an issue that caused a javascript error in saving packages (settings.packages.unshift is undefined).
+* Fixed an issue where every displayed alert caused a "configuration needed" alert to also be displayed.
+* Fixed an issue where the "configuration needed" alert was shown even though a user had configured thresholds.
+* Various minor UI improvements.
+
+
+1.0.0-M4 (30th April 2014)
+* Added Exceptions component for browsing exceptions that have occurred in the system.
+* Added About tab to Settings view.
+* Added support for JTDS jdbc driver.
+* Improved SQL Hierarchical view to also aggregate query count and duration for all levels of the call stack.
+* Improved SQL Chronological view to sort by duration (descending) by default.
+* Improved Session view to sort by size (descending) by default.
+* Improved various texts and messages displayed to the user.
+* Fixed an issue where a very small increase in session size did not hit threshold (when threshold=0KB).
+* Fixed an issue where the activation form used inconsistent rules for input checking between frontend/backend.
+* Fixed an issue with Weld application that caused a WELD-001303 No active contexts for scope type javax.enterprise.context.SessionScoped to occur.
+* Fixed an issue where http sessions with jsessionid encoded in URL instead of sent as a cookie did not work.
+
+
+1.0.0-M3a (24th April 2014)
+* Fixed an issue where default alert thresholds would not apply before these were saved.
+
+
+1.0.0-M3 (23rd April 2014)
+* Added support for Wildfly.
+* Fixed a CannotCompileException caused by a class' signer information not matching the signer information of other classes in the same package.
+* Fixed an issue that caused the thresholds to be set to null incorrectly.
+
+
+1.0.0-M2 (15th April 2014)
+* Added support for Jetty 6.
+* Added support for db2-400 JDBC driver.
+* Fixed an issue that caused the toolbar UI to act incorrectly when HTTP session did not exist yet.
+* Fixed an issue that caused an exception to occur when client abruptly aborted a HTTP call.
+* Updated alert threshold defaults to more sensible values.
+* Improved offline activation messages.
+
+
+1.0.0-M1 (8th April 2014)
+* Added SQL component for browsing SQL queries executed for a given request.
+* Added Session component for browsing the Session object contents and diff.
