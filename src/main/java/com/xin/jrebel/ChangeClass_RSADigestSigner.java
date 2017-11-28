@@ -8,6 +8,7 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Handle;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.TypePath;
 
 import static org.objectweb.asm.ClassWriter.COMPUTE_MAXS;
 import static org.objectweb.asm.Opcodes.ASM4;
@@ -23,7 +24,7 @@ public class ChangeClass_RSADigestSigner {
     public static final String LR_CLASS = "org.zeroturnaround.bundled.org.bouncycastle.crypto.signers.RSADigestSigner";
 
     public static boolean validate(byte[] classByte) {
-        return new ClassReader(classByte).getClassName().equals(LR_CLASS);
+        return new ClassReader(classByte).getClassName().replace("/",".").equals(LR_CLASS);
     }
 
     public static byte[] crackContextValidate(byte[] classByte) throws Exception {
@@ -70,6 +71,8 @@ public class ChangeClass_RSADigestSigner {
                 super.visitCode();
                 mv.visitInsn(ICONST_1);
                 mv.visitInsn(IRETURN);
+                mv.visitMaxs(1,2);
+                mv.visitEnd();
             }
 
             @Override
@@ -156,6 +159,39 @@ public class ChangeClass_RSADigestSigner {
 
             @Override
             public void visitEnd() {
+            }
+
+            @Override
+            public void visitParameter(String name, int access) {
+            }
+
+            @Override
+            public AnnotationVisitor visitTypeAnnotation(int typeRef, TypePath typePath, String desc, boolean visible) {
+                return super.visitTypeAnnotation(typeRef, typePath, desc, visible);
+            }
+
+            @Override
+            public AnnotationVisitor visitParameterAnnotation(int parameter, String desc, boolean visible) {
+                return super.visitParameterAnnotation(parameter, desc, visible);
+            }
+
+            @Override
+            public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
+            }
+
+            @Override
+            public AnnotationVisitor visitInsnAnnotation(int typeRef, TypePath typePath, String desc, boolean visible) {
+                return super.visitInsnAnnotation(typeRef, typePath, desc, visible);
+            }
+
+            @Override
+            public AnnotationVisitor visitTryCatchAnnotation(int typeRef, TypePath typePath, String desc, boolean visible) {
+                return super.visitTryCatchAnnotation(typeRef, typePath, desc, visible);
+            }
+
+            @Override
+            public AnnotationVisitor visitLocalVariableAnnotation(int typeRef, TypePath typePath, Label[] start, Label[] end, int[] index, String desc, boolean visible) {
+                return super.visitLocalVariableAnnotation(typeRef, typePath, start, end, index, desc, visible);
             }
 
             @Override

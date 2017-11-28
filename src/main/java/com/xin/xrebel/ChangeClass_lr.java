@@ -24,7 +24,7 @@ public class ChangeClass_lr {
     public static boolean validate(byte[] classByte) {
         ClassReader classReader = new ClassReader(classByte);
 
-        return classReader.getClassName().equals(LR_CLASS);
+        return classReader.getClassName().replace("/",".").equals(LR_CLASS);
     }
 
     public static byte[] crackLicenseValidate(byte[] classByte) throws Exception {

@@ -76,7 +76,7 @@ public class Mylog {
     private static File localFile = new File("E:\\mylog.txt");
     private static FileWriter localFileWriter;
     private static int                         deep                = 0;
-    private static long                        startTime           = System.currentTimeMillis() + 1000 * 60;
+//    private static long                        startTime           = System.currentTimeMillis() + 1000 * 60;
     private static LinkedBlockingQueue<String> linkedBlockingQueue = new LinkedBlockingQueue(1000000);
 
     static {
@@ -90,9 +90,6 @@ public class Mylog {
             while (true) {
                 try {
                     poll = linkedBlockingQueue.poll(1, TimeUnit.DAYS);
-                    if (startTime < System.currentTimeMillis()) {
-                        return;
-                    }
                     localFileWriter.append(poll);
                     localFileWriter.flush();
 
@@ -107,9 +104,7 @@ public class Mylog {
     }
 
     private static void print(Object... objects) {
-        if (startTime < System.currentTimeMillis()) {
-            return;
-        }
+
         synchronized (linkedBlockingQueue) {
             if (deep >= 1) {
                 return;

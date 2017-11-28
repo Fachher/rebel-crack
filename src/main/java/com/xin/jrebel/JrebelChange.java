@@ -1,6 +1,8 @@
 package com.xin.jrebel;
 
+import com.xin.common.AddPrintParamClass;
 import com.xin.common.NoChangeClass;
+import jdk.internal.org.objectweb.asm.ClassReader;
 
 import java.io.File;
 import java.io.IOException;
@@ -144,6 +146,58 @@ public class JrebelChange {
                                 try {
                                     if (ChangeClass_RSADigestSigner.validate(classByte)) {
                                         return ChangeClass_RSADigestSigner.crackContextValidate(classByte);
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                return NoChangeClass.changeToNoChange(classByte);
+                            });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+            if (sourceFile.getName().startsWith("jr-ide-common")) {
+                try {
+                    scanAndChangeClass(sourceFile
+                            , targetFile
+                            , jarOutputStream -> {
+                            }, classByte -> {
+                                try {
+                                    if (ChangeClass_LicenseNotifier.validate(classByte)) {
+                                        return ChangeClass_LicenseNotifier.crackContextValidate(classByte);
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                return NoChangeClass.changeToNoChange(classByte);
+                            });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+
+            if (sourceFile.getName().startsWith("httpclient")) {
+                try {
+                    scanAndChangeClass(sourceFile
+                            , targetFile
+                            , jarOutputStream -> {
+                            }, classByte -> {
+                                try {
+                                    ClassReader classReader = new ClassReader(classByte);
+                                    String className = classReader.getClassName().replace("/", ".");
+                                    if (className.equals("org.apache.http.impl.client.CloseableHttpClient")
+                                            ||className.equals("org.apache.http.impl.client.ContentEncodingHttpClient")
+                                            ||className.equals("org.apache.http.impl.client.MinimalHttpClient")
+                                            ||className.equals("org.apache.http.impl.client.DefaultHttpClient")
+                                            ||className.equals("org.apache.http.impl.client.SystemDefaultHttpClient")
+                                            ||className.startsWith("org.apache.http.impl.client")
+                                            ||className.equals("org.apache.http.impl.client.InternalHttpClient")
+                                            ) {
+                                        return AddPrintParamClass.changeToAddPrintParamClass(classByte);
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();

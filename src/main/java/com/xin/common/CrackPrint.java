@@ -63,6 +63,7 @@ public class CrackPrint {
                 jarOutputStream.flush();
                 jarOutputStream.closeEntry();
             }
+            jarOutputStream.close();
         }
     }
 
